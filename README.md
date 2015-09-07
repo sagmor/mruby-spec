@@ -11,7 +11,7 @@ MRuby::Build.new('test') do |conf|
   
   # Your build configuration
 
-  conf.gem github: 'sagmor/mruby-spec
+  conf.gem github: 'sagmor/mruby-spec'
   conf.enable_test
 end
 ```
@@ -28,7 +28,7 @@ end
 
 And watch it fail
 
-```
+```shell
 # If you are using mruby-cli
 bundle exec mrb test
 
