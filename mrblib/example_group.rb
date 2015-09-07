@@ -19,7 +19,11 @@ module MSpec
     end
 
     def description
-      description = @target.to_s
+      description = if @target.kind_of?(String)
+        " "+@target
+      else
+        @target.to_s
+      end
 
       [@parent.description,description].join('')
     end
