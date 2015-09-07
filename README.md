@@ -1,5 +1,7 @@
 # MRuby Spec
 
+[![Travis](https://img.shields.io/travis/sagmor/mruby-spec.svg)](https://travis-ci.org/sagmor/mruby-spec)
+
 MRuby Spec (or MSpec) is a Behaviour Driven Development framework for MRuby inspired in RSpec.
 
 ## Usage
