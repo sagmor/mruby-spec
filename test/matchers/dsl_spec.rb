@@ -98,10 +98,26 @@ describe MSpec::Matchers do
     end
 
     describe "Expecting errors" do
-      it '"expect { ... }.to raise_error"'
-      it '"expect { ... }.to raise_error(ErrorClass)"'
-      it '"expect { ... }.to raise_error("message")"'
-      it '"expect { ... }.to raise_error(ErrorClass, "message")"'
+      it '"expect { ... }.to raise_error"' do
+        expect{ raise RuntimeError }.to raise_error
+        expect{ 'some safe code' }.not_to raise_error
+      end
+
+      it '"expect { ... }.to raise_error(ErrorClass)"' do
+        error = Class.new(RuntimeError)
+
+        expect{ raise error }.to raise_error(error)
+        expect{ raise error }.to raise_error(RuntimeError)
+      end
+
+      it '"expect { ... }.to raise_error("message")"' do
+        expect{ raise "message" }.to raise_error("message")
+      end
+
+      it '"expect { ... }.to raise_error(ErrorClass, "message")"' do
+        error = Class.new(RuntimeError)
+        expect{ raise error, "message" }.to raise_error(error, "message")
+      end
     end
 
     describe "Expecting throws" do
