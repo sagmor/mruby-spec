@@ -9,6 +9,7 @@ end
 
 # Normal MRuby test assertion to ensure specs were executed
 assert('MSpec::Runner executes examples') do
+  # mspec_runner_executed was set true on the example above
   assert_true(mspec_runner_executed)
 end
 

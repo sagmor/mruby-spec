@@ -4,7 +4,6 @@ MRuby::Build.new do |conf|
 
   conf.gem '.'
 
-  # required to print test errors
-  conf.gem core: 'mruby-print'
+  conf.enable_test
 end
 
