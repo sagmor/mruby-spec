@@ -1,9 +1,10 @@
 module MSpec
   class Example
+    PENDING = -> { raise MRubyTestSkip, "(Not implemented)" }
     def initialize(group,description,&block)
       @group = group
       @description = description
-      @block = block
+      @block = block || PENDING
     end
 
     # Executes the example Proc
