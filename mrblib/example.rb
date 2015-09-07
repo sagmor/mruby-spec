@@ -1,5 +1,7 @@
 module MSpec
   class Example
+    include MSpec::Matchers::DSL
+
     PENDING = -> { raise MRubyTestSkip, "(Not implemented)" }
     def initialize(group,description,&block)
       @group = group

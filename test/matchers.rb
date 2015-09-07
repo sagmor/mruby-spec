@@ -1,8 +1,4 @@
 describe MSpec::Matchers do
-  it "has a be matcher"
-  it "has a true matcher"
-  it "has a nil? matcher"
-
   # @see https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
   describe "Built in matchers" do
 
