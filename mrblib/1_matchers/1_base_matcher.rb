@@ -1,8 +1,10 @@
 module MSpec
   module Matchers
+    UndefinedValue = Module.new
+
     # @abstract
     class BaseMatcher
-      def initialize(expected)
+      def initialize(expected = UndefinedValue)
         @expected = expected
       end
 

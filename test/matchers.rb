@@ -26,15 +26,53 @@ describe MSpec::Matchers do
     end
 
     describe "Optional APIs for identity/equivalence" do
-      it '"expect(actual).to eql(expected)"'   # passes if actual.eql?(expected)
-      it '"expect(actual).to equal(expected)"' # passes if actual.equal?(expected)
+      it '"expect(actual).to eql(expected)"' do   # passes if actual.eql?(expected)
+        actual = "some string"
+        expected = actual.dup
+        unexpected = "some other string"
+
+        expect(actual).to eql(expected)
+        expect(actual).not_to eql(unexpected)
+      end
+
+      it '"expect(actual).to equal(expected)"' do # passes if actual.equal?(expected)
+        actual = "some string"
+        expected = actual
+        unexpected = actual.dup
+
+        expect(actual).to equal(expected)
+        expect(actual).not_to equal(unexpected)
+      end
     end
 
     describe "Comparisons" do
-      it '"expect(actual).to be >  expected"'
-      it '"expect(actual).to be >= expected"'
-      it '"expect(actual).to be <= expected"'
-      it '"expect(actual).to be <  expected"'
+      it '"expect(actual).to be > expected"' do
+        expect(100).to be > 10
+        expect(100).not_to be > 100
+        expect(100).not_to be > 1000
+      end
+
+      it '"expect(actual).to be >= expected"' do
+        expect(100).to be >= 10
+        expect(100).to be >= 100
+        expect(100).not_to be >= 1000
+      end
+
+
+      it '"expect(actual).to be <= expected"' do
+        expect(10).to be <= 100
+        expect(10).to be <= 10
+        expect(10).not_to be <= 1
+      end
+
+
+      it '"expect(actual).to be < expected"' do
+        expect(10).to be < 100
+        expect(10).not_to be < 10
+        expect(10).not_to be < 1
+      end
+
+
       it '"expect(actual).to be_between(minimum, maximum).inclusive"'
       it '"expect(actual).to be_between(minimum, maximum).exclusive"'
       it '"expect(actual).to match(/expression/)"'

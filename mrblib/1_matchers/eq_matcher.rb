@@ -12,5 +12,6 @@ module MSpec
     end
 
     define :eq, EqMatcher
+    define :eql, EqMatcher
   end
 end
