@@ -82,17 +82,66 @@ describe MSpec::Matchers do
     end
 
     describe "Types/classes/response" do
-      it '"expect(actual).to be_instance_of(expected)"'
-      it '"expect(actual).to be_kind_of(expected)"'
+      it '"expect(actual).to be_instance_of(expected)"' do
+        klass = Class.new
+        actual = klass.new
+
+        expect(actual).to be_instance_of(klass)
+        expect(actual).not_to be_instance_of(Object)
+      end
+
+      it '"expect(actual).to be_kind_of(expected)"' do
+        klass = Class.new
+        actual = klass.new
+
+        expect(actual).to be_kind_of(klass)
+        expect(actual).to be_kind_of(Object)
+        expect(actual).not_to be_kind_of(String)
+      end
+
       it '"expect(actual).to respond_to(expected)"'
     end
 
     describe "Truthiness and existentialism" do
-      it '"expect(actual).to be_truthy"'    # passes if actual is truthy (not nil or false)
-      it '"expect(actual).to be true"'      # passes if actual == true
-      it '"expect(actual).to be_falsey"'    # passes if actual is falsy (nil or false)
-      it '"expect(actual).to be false"'     # passes if actual == false
-      it '"expect(actual).to be_nil"'       # passes if actual is nil
+      it '"expect(actual).to be_truthy"' do    # passes if actual is truthy (not nil or false)
+        expect(true).to be_truthy
+        expect("true").to be_truthy
+        expect("").to be_truthy
+        expect(0).to be_truthy
+
+        expect(false).not_to be_truthy
+        expect(nil).not_to be_truthy
+      end
+
+      it '"expect(actual).to be true"' do     # passes if actual == true
+        expect(true).to be true
+        expect(false).not_to be true
+        expect(nil).not_to be true
+        expect("true").not_to be true
+      end
+
+      it '"expect(actual).to be_falsey"' do    # passes if actual is falsy (nil or false)
+        expect(false).to be_falsey
+        expect(nil).to be_falsey
+
+        expect(true).not_to be_falsey
+        expect("false").not_to be_falsey
+        expect("").not_to be_falsey
+        expect(0).not_to be_falsey
+      end
+
+      it '"expect(actual).to be false"' do     # passes if actual == false
+        expect(false).to be false
+        expect(true).not_to be false
+        expect(nil).not_to be false
+        expect("false").not_to be false
+      end
+
+      it '"expect(actual).to be_nil"' do       # passes if actual is nil
+        expect(nil).to be_nil
+        expect("").not_to be_nil
+      end
+
       it '"expect(actual).to exist"'        # passes if actual.exist? and/or actual.exists? are truthy
       it '"expect(actual).to exist(*args)"' # passes if actual.exist?(*args) and/or actual.exists?(*args) are truthy
     end
