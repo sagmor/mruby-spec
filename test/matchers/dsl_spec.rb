@@ -127,8 +127,35 @@ describe MSpec::Matchers do
     end
 
     describe "Predicate matchers" do
-      it "expect(actual).to be_xxx"         # passes if actual.xxx?
-      it "expect(actual).to have_xxx(:arg)" # passes if actual.has_xxx?(:arg)
+      it "expect(actual).to be_xxx" do         # passes if actual.xxx?
+        actual = Class.new do
+          def something_useful?
+            false
+          end
+
+          def test_object?
+            true
+          end
+        end.new
+
+        expect(actual).to be_test_object
+        expect(actual).not_to be_something_useful
+      end
+
+      it "expect(actual).to have_xxx(:arg)" do # passes if actual.has_xxx?(:arg)
+        actual = Class.new do
+          def has_some_useful_functionality?
+            false
+          end
+
+          def has_test_functionality?
+            true
+          end
+        end.new
+
+        expect(actual).to have_test_functionality
+        expect(actual).not_to have_some_useful_functionality
+      end
     end
 
     describe "Collection membership" do
