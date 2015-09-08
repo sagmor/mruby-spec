@@ -3,8 +3,9 @@ module MSpec
   class Expectation
     Positive = 'Expected to'
     Negative = 'Not expected to'
-    def initialize(actual)
-      @actual = actual
+
+    def initialize(value=nil,&block)
+      @actual = block || value
     end
 
     def actual
