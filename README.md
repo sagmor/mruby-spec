@@ -23,7 +23,7 @@ Write your tests using BDD syntaxt
 ```ruby
 describe YourClass do
   it "does something" do
-    expect(false).to be_true
+    expect(false).to be true
   end
 end
 ```
