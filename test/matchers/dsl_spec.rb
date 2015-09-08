@@ -99,7 +99,15 @@ describe MSpec::Matchers do
         expect(actual).not_to be_kind_of(String)
       end
 
-      it '"expect(actual).to respond_to(expected)"'
+      it '"expect(actual).to respond_to(expected)"' do
+        klass = Class.new do
+          def some_method
+          end
+        end
+        actual = klass.new
+
+        expect(actual).to respond_to :some_method
+      end
     end
 
     describe "Truthiness and existentialism" do
