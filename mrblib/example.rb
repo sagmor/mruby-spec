@@ -19,8 +19,8 @@ module MSpec
       [@group.description,@description].join(' ')
     end
 
-    def expect(object)
-      Expectation.new(object)
+    def expect(*args,&block)
+      Expectation.new(*args,&block)
     end
 
   end
