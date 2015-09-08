@@ -1,6 +1,7 @@
 # MRuby Spec
 
 [![Travis](https://img.shields.io/travis/sagmor/mruby-spec.svg)](https://travis-ci.org/sagmor/mruby-spec)
+[![Inline docs](http://inch-ci.org/github/sagmor/mruby-spec.svg?branch=master&style=shields)](http://inch-ci.org/github/sagmor/mruby-spec)
 
 MRuby Spec (or MSpec) is a Behaviour Driven Development framework for MRuby inspired in RSpec.
 
@@ -10,7 +11,7 @@ Add `mruby-spec` as a dependency on your MRuby's `build_config.rb`
 
 ```ruby
 MRuby::Build.new('test') do |conf|
-  
+
   # Your build configuration
 
   conf.gem github: 'sagmor/mruby-spec'
