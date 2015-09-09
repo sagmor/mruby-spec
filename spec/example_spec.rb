@@ -1,15 +1,14 @@
 describe MSpec::Example do
   describe "#subject" do
-    subject { Object.new }
+    subject { "subject" }
 
     it "has access to the subject" do
-      expect{
-        expect(subject).not_to be_nil
-      }.not_to raise_error
+      should eq "subject"
     end
 
     it "is memoized" do
       expect(subject).to be subject
+      expect(subject).not_to be "subject"
     end
   end
 
@@ -21,7 +20,7 @@ describe MSpec::Example do
     describe(String) do
 
       it "the subject is an instance of the class" do
-        expect(subject).to eq ""
+        is_expected.to eq ""
         expect(subject).to be_instance_of String
       end
 

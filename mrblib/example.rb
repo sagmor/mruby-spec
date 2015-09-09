@@ -31,5 +31,17 @@ module MSpec
       @subject ||= @group.subject.call
     end
 
+    def is_expected
+      expect(subject)
+    end
+
+    def should(*args)
+      expect(subject).to(*args)
+    end
+
+    def should_not(*args)
+      expect(subject).not_to(*args)
+    end
+
   end
 end
