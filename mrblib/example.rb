@@ -23,5 +23,13 @@ module MSpec
       Expectation.new(*args,&block)
     end
 
+    def described_class
+      @group.described_class
+    end
+
+    def subject
+      @subject ||= @group.subject.call
+    end
+
   end
 end

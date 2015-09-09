@@ -12,6 +12,10 @@ module MSpec
         actual.send method, *@args, &@block
       end
 
+      def description
+        "#{@method} #{@args.map{|o| o.inspect }.join(', ')}"
+      end
+
       def method
         @method[3,@method.length-3]+'?'
       end

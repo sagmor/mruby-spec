@@ -5,6 +5,16 @@ module MSpec
     def description
       ""
     end
+
+    def described_class
+      nil
+    end
+
+    def subject
+      Proc.new{
+        raise "Subject not defined"
+      }
+    end
   end
 
 end
