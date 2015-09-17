@@ -16,7 +16,8 @@ module MSpec
     end
 
     # Attach a new example to the subgroup
-    def it(description,&block)
+    def it(description=nil,&block)
+      description ||= "(no description provided)"
       @examples << Example.new(self,description,&block)
     end
 
